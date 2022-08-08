@@ -6,19 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { GestionEtudiantService } from './services/gestion-etudiant.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddstudentmodalComponent } from './addstudentmodal/addstudentmodal.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, LoginComponent,HomeComponent, HeaderComponent, FooterComponent, AddstudentmodalComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, NgbModule],
+  providers: [GestionEtudiantService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

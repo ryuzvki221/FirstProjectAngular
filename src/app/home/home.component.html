@@ -4,8 +4,71 @@
     <div class="col-md-12">
       <div class="jumbotron">
         <!-- welcome username -->
-        <h1>Welcome, {{username}}</h1>
-        <p>This is the home page of the application.</p>
+        <h1>Welcome, {{ username }}</h1>
       </div>
     </div>
+  </div>
+  <!-- end welcome page -->
+  <!--trigger button modal-->
 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-info" role="alert">
+        <button class="btn btn-lg btn-primary" (click)="open()">
+          Add Student
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- end of row -->
+
+  <hr />
+  <!-- table students -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Students</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let student of students">
+                <td>{{ student.id }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.phone }}</td>
+                <td>{{ student.address }}</td>
+                <td>
+                  <button
+                    class="btn btn-primary"
+                    (click)="editStudent(student)"
+                  >
+                    Edit
+                  </button>
+                  &nbsp; &nbsp;
+                  <button
+                    class="btn btn-danger"
+                    (click)="deleteStudent(student)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

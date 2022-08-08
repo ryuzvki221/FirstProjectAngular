@@ -10,21 +10,22 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   img: string;
-  validated: boolean;
+  valid: boolean;
+
   constructor(private _router: Router) {
     this.email = '';
     this.password = '';
     this.img = './../assets/test_img.gif';
-    this.validated = false;
+    this.valid = true;
   }
   ngOnInit(): void {}
   login(): void {
     if (this.email === 'ryuzvki@outlook.com' && this.password === '123456') {
-      this.validated = true;
-      this._router.navigate(['/home', this.email]);
+      sessionStorage.setItem('email', this.email);
+      this._router.navigate(['/home']);
+      this.valid = true;
     } else {
-      this.validated = false;
-      alert('login or password is incorrect');
+      this.valid = false;
     }
   }
 }
